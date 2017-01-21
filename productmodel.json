@@ -1,0 +1,1595 @@
+{
+  "warranty": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Warranty",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "warranty"
+    ],
+    "depends": [
+      "product_tmpl_id.warranty"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "float",
+    "store": false
+  },
+  "message_follower_ids": {
+    "domain": [
+      [
+        "res_model",
+        "=",
+        "product.product"
+      ]
+    ],
+    "change_default": false,
+    "string": "Followers",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "mail.followers",
+    "context": {},
+    "relation_field": "res_id",
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": true
+  },
+  "nbr_reordering_rules": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Reordering Rules",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false
+  },
+  "code": {
+    "change_default": false,
+    "string": "Internal Reference",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "translate": false,
+    "type": "char",
+    "store": false
+  },
+  "create_date": {
+    "change_default": false,
+    "string": "Created on",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "datetime",
+    "store": true
+  },
+  "write_date": {
+    "change_default": false,
+    "string": "Last Updated on",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "datetime",
+    "store": true
+  },
+  "weight": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "The weight of the contents in Kg, not including any packaging, etc.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "float",
+    "store": true,
+    "string": "Weight"
+  },
+  "sequence": {
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Gives the sequence order when displaying a product list",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "sequence"
+    ],
+    "depends": [
+      "product_tmpl_id.sequence"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "integer",
+    "store": false,
+    "string": "Sequence"
+  },
+  "message_needaction": {
+    "change_default": false,
+    "help": "If checked, new messages require your attention.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "boolean",
+    "store": false,
+    "string": "Action Needed"
+  },
+  "message_channel_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Followers (Channels)",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "message_follower_ids"
+    ],
+    "relation": "mail.channel",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2many",
+    "store": false
+  },
+  "image": {
+    "change_default": false,
+    "help": "Image of the product variant (Big-sized image of product template if false). It is automatically resized as a 1024x1024px image, with aspect ratio preserved.",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [
+      "image_variant",
+      "product_tmpl_id.image"
+    ],
+    "attachment": false,
+    "company_dependent": false,
+    "sortable": false,
+    "type": "binary",
+    "store": false,
+    "string": "Big-sized image"
+  },
+  "standard_price": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Cost of the product template used for standard stock valuation in accounting and used as a base price on purchase orders. Expressed in the default unit of measure of the product.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "groups": "base.group_user",
+    "company_dependent": true,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Cost"
+  },
+  "attribute_line_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Product Attributes",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "attribute_line_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.attribute_line_ids"
+    ],
+    "relation": "product.attribute.line",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": false
+  },
+  "price_extra": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "This is the sum of the extra price of all attributes",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "attribute_value_ids.price_ids.price_extra",
+      "attribute_value_ids.price_ids.product_tmpl_id"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Variant Price Extra"
+  },
+  "currency_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Currency",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "related": [
+      "product_tmpl_id",
+      "currency_id"
+    ],
+    "depends": [
+      "product_tmpl_id.currency_id"
+    ],
+    "relation": "res.currency",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false
+  },
+  "uom_id": {
+    "domain": [],
+    "change_default": false,
+    "help": "Default Unit of Measure used for all stock operation.",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "uom_id"
+    ],
+    "depends": [
+      "product_tmpl_id.uom_id"
+    ],
+    "relation": "product.uom",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false,
+    "string": "Unit of Measure"
+  },
+  "orderpoint_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Minimum Stock Rules",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "stock.warehouse.orderpoint",
+    "context": {},
+    "relation_field": "product_id",
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": true
+  },
+  "description_purchase": {
+    "change_default": false,
+    "help": "A description of the Product that you want to communicate to your vendors. This description will be copied to every Purchase Order, Receipt and Vendor Bill/Refund.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "description_purchase"
+    ],
+    "depends": [
+      "product_tmpl_id.description_purchase"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": true,
+    "type": "text",
+    "store": false,
+    "string": "Purchase Description"
+  },
+  "default_code": {
+    "change_default": false,
+    "string": "Internal Reference",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": false,
+    "type": "char",
+    "store": true
+  },
+  "stock_quant_ids": {
+    "domain": [],
+    "change_default": false,
+    "help": "Technical: used to compute quantities.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "stock.quant",
+    "context": {},
+    "relation_field": "product_id",
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": true,
+    "string": "Stock quant ids"
+  },
+  "image_small": {
+    "change_default": false,
+    "help": "Image of the product variant (Small-sized image of product template if false).",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [
+      "image_variant",
+      "product_tmpl_id.image"
+    ],
+    "attachment": false,
+    "company_dependent": false,
+    "sortable": false,
+    "type": "binary",
+    "store": false,
+    "string": "Small-sized image"
+  },
+  "qty_available": {
+    "digits": [
+      16,
+      3
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Current quantity of products.\nIn a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\nIn a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\nstored in the Stock Location of the Warehouse of this Shop, or any of its children.\nOtherwise, this includes goods stored in any Stock Location with 'internal' type.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "stock_quant_ids",
+      "stock_move_ids"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Quantity On Hand"
+  },
+  "location_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Location",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "location_id"
+    ],
+    "depends": [
+      "product_tmpl_id.location_id"
+    ],
+    "relation": "stock.location",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false
+  },
+  "message_ids": {
+    "domain": [
+      [
+        "model",
+        "=",
+        "product.product"
+      ]
+    ],
+    "change_default": false,
+    "string": "Messages",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "mail.message",
+    "context": {},
+    "relation_field": "res_id",
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": true
+  },
+  "stock_move_ids": {
+    "domain": [],
+    "change_default": false,
+    "help": "Technical: used to compute quantities.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "stock.move",
+    "context": {},
+    "relation_field": "product_id",
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": true,
+    "string": "Stock move ids"
+  },
+  "image_variant": {
+    "change_default": false,
+    "help": "This field holds the image used as image for the product variant, limited to 1024x1024px.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "attachment": true,
+    "company_dependent": false,
+    "sortable": true,
+    "type": "binary",
+    "store": true,
+    "string": "Variant Image"
+  },
+  "delivery_count": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Delivery",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false
+  },
+  "partner_ref": {
+    "change_default": false,
+    "string": "Customer Ref",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "translate": false,
+    "type": "char",
+    "store": false
+  },
+  "display_name": {
+    "change_default": false,
+    "string": "Display Name",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "name"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "translate": false,
+    "type": "char",
+    "store": false
+  },
+  "sale_ok": {
+    "change_default": false,
+    "help": "Specify if the product can be selected in a sales order line.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "sale_ok"
+    ],
+    "depends": [
+      "product_tmpl_id.sale_ok"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "boolean",
+    "store": false,
+    "string": "Can be Sold"
+  },
+  "message_is_follower": {
+    "change_default": false,
+    "string": "Is Follower",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "message_follower_ids"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "boolean",
+    "store": false
+  },
+  "__last_update": {
+    "change_default": false,
+    "string": "Last Modified on",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "create_date",
+      "write_date"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "datetime",
+    "store": false
+  },
+  "route_from_categ_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Category Routes",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "related": [
+      "product_tmpl_id",
+      "route_from_categ_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.route_from_categ_ids"
+    ],
+    "relation": "stock.location.route",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2many",
+    "store": false
+  },
+  "purchase_ok": {
+    "change_default": false,
+    "string": "Can be Purchased",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "purchase_ok"
+    ],
+    "depends": [
+      "product_tmpl_id.purchase_ok"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "boolean",
+    "store": false
+  },
+  "message_last_post": {
+    "change_default": false,
+    "help": "Date of the last message posted on the record.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "datetime",
+    "store": true,
+    "string": "Last Message Date"
+  },
+  "company_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Company",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "company_id"
+    ],
+    "depends": [
+      "product_tmpl_id.company_id"
+    ],
+    "relation": "res.company",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false
+  },
+  "id": {
+    "change_default": false,
+    "string": "ID",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "integer",
+    "store": true
+  },
+  "product_tmpl_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Product Template",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "product.template",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": true
+  },
+  "color": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Color Index",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "color"
+    ],
+    "depends": [
+      "product_tmpl_id.color"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "integer",
+    "store": false
+  },
+  "image_medium": {
+    "change_default": false,
+    "help": "Image of the product variant (Medium-sized image of product template if false).",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [
+      "image_variant",
+      "product_tmpl_id.image"
+    ],
+    "attachment": false,
+    "company_dependent": false,
+    "sortable": false,
+    "type": "binary",
+    "store": false,
+    "string": "Medium-sized image"
+  },
+  "pricelist_item_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Pricelist item ids",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "relation": "product.pricelist.item",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2many",
+    "store": false
+  },
+  "incoming_qty": {
+    "digits": [
+      16,
+      3
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Quantity of products that are planned to arrive.\nIn a context with a single Stock Location, this includes goods arriving to this Location, or any of its children.\nIn a context with a single Warehouse, this includes goods arriving to the Stock Location of this Warehouse, or any of its children.\nOtherwise, this includes goods arriving to any Stock Location with 'internal' type.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "stock_quant_ids",
+      "stock_move_ids"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Incoming"
+  },
+  "uom_po_id": {
+    "domain": [],
+    "change_default": false,
+    "help": "Default Unit of Measure used for purchase orders. It must be in the same category than the default unit of measure.",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "uom_po_id"
+    ],
+    "depends": [
+      "product_tmpl_id.uom_po_id"
+    ],
+    "relation": "product.uom",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false,
+    "string": "Purchase Unit of Measure"
+  },
+  "pricelist_id": {
+    "domain": [],
+    "change_default": false,
+    "help": "Technical field. Used for searching on pricelists, not stored in database.",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "pricelist_id"
+    ],
+    "depends": [
+      "product_tmpl_id.pricelist_id"
+    ],
+    "relation": "product.pricelist",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false,
+    "string": "Pricelist"
+  },
+  "message_unread_counter": {
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Number of unread messages",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false,
+    "string": "Unread Messages Counter"
+  },
+  "description_sale": {
+    "change_default": false,
+    "help": "A description of the Product that you want to communicate to your customers. This description will be copied to every Sale Order, Delivery Order and Customer Invoice/Refund",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "description_sale"
+    ],
+    "depends": [
+      "product_tmpl_id.description_sale"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": true,
+    "type": "text",
+    "store": false,
+    "string": "Sale Description"
+  },
+  "message_partner_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Followers (Partners)",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "message_follower_ids"
+    ],
+    "relation": "res.partner",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2many",
+    "store": false
+  },
+  "virtual_available": {
+    "digits": [
+      16,
+      3
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Forecast quantity (computed as Quantity On Hand - Outgoing + Incoming)\nIn a context with a single Stock Location, this includes goods stored in this location, or any of its children.\nIn a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\nOtherwise, this includes goods stored in any Stock Location with 'internal' type.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "stock_quant_ids",
+      "stock_move_ids"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Forecast Quantity"
+  },
+  "barcode": {
+    "change_default": false,
+    "help": "International Article Number used for product identification.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": false,
+    "type": "char",
+    "store": true,
+    "string": "Barcode"
+  },
+  "description": {
+    "change_default": false,
+    "help": "A precise description of the Product, used only for internal information purposes.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "description"
+    ],
+    "depends": [
+      "product_tmpl_id.description"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": true,
+    "type": "text",
+    "store": false,
+    "string": "Description"
+  },
+  "create_uid": {
+    "domain": [],
+    "change_default": false,
+    "string": "Created by",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "res.users",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": true
+  },
+  "reception_count": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Receipt",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false
+  },
+  "price": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Price",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false
+  },
+  "property_stock_production": {
+    "domain": [
+      [
+        "usage",
+        "like",
+        "production"
+      ]
+    ],
+    "change_default": false,
+    "help": "This stock location will be used, instead of the default one, as the source location for stock moves generated by manufacturing orders.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "property_stock_production"
+    ],
+    "depends": [
+      "product_tmpl_id.property_stock_production"
+    ],
+    "relation": "stock.location",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false,
+    "string": "Production Location"
+  },
+  "warehouse_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Warehouse",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "warehouse_id"
+    ],
+    "depends": [
+      "product_tmpl_id.warehouse_id"
+    ],
+    "relation": "stock.warehouse",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false
+  },
+  "volume": {
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "The volume in m3.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "float",
+    "store": true,
+    "string": "Volume"
+  },
+  "route_ids": {
+    "domain": [
+      [
+        "product_selectable",
+        "=",
+        true
+      ]
+    ],
+    "change_default": false,
+    "help": "Depending on the modules installed, this will allow you to define the route of the product: whether it will be bought, manufactured, MTO/MTS,...",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "route_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.route_ids"
+    ],
+    "relation": "stock.location.route",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2many",
+    "store": false,
+    "string": "Routes"
+  },
+  "outgoing_qty": {
+    "digits": [
+      16,
+      3
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Quantity of products that are planned to leave.\nIn a context with a single Stock Location, this includes goods leaving this Location, or any of its children.\nIn a context with a single Warehouse, this includes goods leaving the Stock Location of this Warehouse, or any of its children.\nOtherwise, this includes goods leaving any Stock Location with 'internal' type.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [
+      "stock_quant_ids",
+      "stock_move_ids"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Outgoing"
+  },
+  "list_price": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Base price to compute the customer price. Sometimes called the catalog price.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "list_price"
+    ],
+    "depends": [
+      "product_tmpl_id.list_price"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "float",
+    "store": false,
+    "string": "Sale Price"
+  },
+  "active": {
+    "change_default": false,
+    "help": "If unchecked, it will allow you to hide the product without removing it.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "boolean",
+    "store": true,
+    "string": "Active"
+  },
+  "property_stock_inventory": {
+    "domain": [
+      [
+        "usage",
+        "like",
+        "inventory"
+      ]
+    ],
+    "change_default": false,
+    "help": "This stock location will be used, instead of the default one, as the source location for stock moves generated when you do an inventory.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "property_stock_inventory"
+    ],
+    "depends": [
+      "product_tmpl_id.property_stock_inventory"
+    ],
+    "relation": "stock.location",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false,
+    "string": "Inventory Location"
+  },
+  "write_uid": {
+    "domain": [],
+    "change_default": false,
+    "string": "Last Updated by",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "res.users",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": true
+  },
+  "property_stock_procurement": {
+    "domain": [
+      [
+        "usage",
+        "like",
+        "procurement"
+      ]
+    ],
+    "change_default": false,
+    "help": "This stock location will be used, instead of the default one, as the source location for stock moves generated by procurements.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "property_stock_procurement"
+    ],
+    "depends": [
+      "product_tmpl_id.property_stock_procurement"
+    ],
+    "relation": "stock.location",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false,
+    "string": "Procurement Location"
+  },
+  "product_variant_count": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "# Product Variants",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "related": [
+      "product_tmpl_id",
+      "product_variant_count"
+    ],
+    "depends": [
+      "product_tmpl_id.product_variant_count"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false
+  },
+  "rental": {
+    "change_default": false,
+    "string": "Can be Rent",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "rental"
+    ],
+    "depends": [
+      "product_tmpl_id.rental"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "boolean",
+    "store": false
+  },
+  "sale_delay": {
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "The average delay in days between the confirmation of the customer order and the delivery of the finished products. It's the time you promise to your customers.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "sale_delay"
+    ],
+    "depends": [
+      "product_tmpl_id.sale_delay"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "float",
+    "store": false,
+    "string": "Customer Lead Time"
+  },
+  "name": {
+    "change_default": false,
+    "string": "Name",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "name"
+    ],
+    "depends": [
+      "product_tmpl_id.name"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": true,
+    "type": "char",
+    "store": false
+  },
+  "product_variant_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Products",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "product_variant_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.product_variant_ids"
+    ],
+    "relation": "product.product",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": false
+  },
+  "type": {
+    "selection": [
+      [
+        "consu",
+        "Consumable"
+      ],
+      [
+        "service",
+        "Service"
+      ],
+      [
+        "product",
+        "Stockable Product"
+      ]
+    ],
+    "change_default": false,
+    "help": "A stockable product is a product for which you manage stock. The \"Inventory\" app has to be installed.\nA consumable product, on the other hand, is a product for which stock is not managed.\nA service is a non-material product you provide.\nA digital content is a non-material product you sell online. The files attached to the products are the one that are sold on the e-commerce such as e-books, music, pictures,... The \"Digital Product\" module has to be installed.",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "type"
+    ],
+    "depends": [
+      "product_tmpl_id.type"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "selection",
+    "store": false,
+    "string": "Product Type"
+  },
+  "item_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Pricelist Items",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "item_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.item_ids"
+    ],
+    "relation": "product.pricelist.item",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": false
+  },
+  "categ_id": {
+    "domain": "[('type','=','normal')]",
+    "change_default": false,
+    "help": "Select category for the current product",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "categ_id"
+    ],
+    "depends": [
+      "product_tmpl_id.categ_id"
+    ],
+    "relation": "product.category",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2one",
+    "store": false,
+    "string": "Internal Category"
+  },
+  "packaging_ids": {
+    "domain": [],
+    "change_default": false,
+    "help": "Gives the different ways to package the same product. This has no impact on the picking order and is mainly used if you use the EDI module.",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "packaging_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.packaging_ids"
+    ],
+    "relation": "product.packaging",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": false,
+    "string": "Logistical Units"
+  },
+  "tracking": {
+    "selection": [
+      [
+        "serial",
+        "By Unique Serial Number"
+      ],
+      [
+        "lot",
+        "By Lots"
+      ],
+      [
+        "none",
+        "No Tracking"
+      ]
+    ],
+    "change_default": false,
+    "string": "Tracking",
+    "searchable": true,
+    "required": true,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "tracking"
+    ],
+    "depends": [
+      "product_tmpl_id.tracking"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "type": "selection",
+    "store": false
+  },
+  "lst_price": {
+    "digits": [
+      16,
+      2
+    ],
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "The sale price is managed from the product template. Click on the 'Variant Prices' button to set the extra attribute prices.",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [
+      "list_price",
+      "price_extra"
+    ],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false,
+    "string": "Sale Price"
+  },
+  "reordering_max_qty": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Reordering max qty",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false
+  },
+  "description_picking": {
+    "change_default": false,
+    "string": "Description on Picking",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "description_picking"
+    ],
+    "depends": [
+      "product_tmpl_id.description_picking"
+    ],
+    "company_dependent": false,
+    "sortable": true,
+    "translate": true,
+    "type": "text",
+    "store": false
+  },
+  "seller_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Vendors",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "related": [
+      "product_tmpl_id",
+      "seller_ids"
+    ],
+    "depends": [
+      "product_tmpl_id.seller_ids"
+    ],
+    "relation": "product.supplierinfo",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "one2many",
+    "store": false
+  },
+  "reordering_min_qty": {
+    "group_operator": "sum",
+    "change_default": false,
+    "string": "Reordering min qty",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "float",
+    "store": false
+  },
+  "attribute_value_ids": {
+    "domain": [],
+    "change_default": false,
+    "string": "Attributes",
+    "searchable": true,
+    "required": false,
+    "manual": false,
+    "readonly": false,
+    "depends": [],
+    "relation": "product.attribute.value",
+    "context": {},
+    "company_dependent": false,
+    "sortable": true,
+    "type": "many2many",
+    "store": true
+  },
+  "message_unread": {
+    "change_default": false,
+    "help": "If checked new messages require your attention.",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "boolean",
+    "store": false,
+    "string": "Unread Messages"
+  },
+  "message_needaction_counter": {
+    "group_operator": "sum",
+    "change_default": false,
+    "help": "Number of messages which requires an action",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "depends": [],
+    "company_dependent": false,
+    "sortable": false,
+    "type": "integer",
+    "store": false,
+    "string": "Number of Actions"
+  },
+  "product_variant_id": {
+    "domain": [],
+    "change_default": false,
+    "string": "Product",
+    "searchable": false,
+    "required": false,
+    "manual": false,
+    "readonly": true,
+    "related": [
+      "product_tmpl_id",
+      "product_variant_id"
+    ],
+    "depends": [
+      "product_tmpl_id.product_variant_id"
+    ],
+    "relation": "product.product",
+    "context": {},
+    "company_dependent": false,
+    "sortable": false,
+    "type": "many2one",
+    "store": false
+  }
+}
