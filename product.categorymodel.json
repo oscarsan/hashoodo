@@ -1,0 +1,73 @@
+{
+  "create_uid": {
+    "type": "many2one",
+    "string": "Created by"
+  },
+  "parent_right": {
+    "type": "integer",
+    "string": "Right Parent"
+  },
+  "display_name": {
+    "type": "char",
+    "string": "Display Name"
+  },
+  "name": {
+    "type": "char",
+    "string": "Name"
+  },
+  "__last_update": {
+    "type": "datetime",
+    "string": "Last Modified on"
+  },
+  "write_uid": {
+    "type": "many2one",
+    "string": "Last Updated by"
+  },
+  "route_ids": {
+    "type": "many2many",
+    "string": "Routes"
+  },
+  "product_count": {
+    "type": "integer",
+    "help": "The number of products under this category (Does not consider the children categories)",
+    "string": "# Products"
+  },
+  "parent_left": {
+    "type": "integer",
+    "string": "Left Parent"
+  },
+  "parent_id": {
+    "type": "many2one",
+    "string": "Parent Category"
+  },
+  "write_date": {
+    "type": "datetime",
+    "string": "Last Updated on"
+  },
+  "total_route_ids": {
+    "type": "many2many",
+    "string": "Total routes"
+  },
+  "create_date": {
+    "type": "datetime",
+    "string": "Created on"
+  },
+  "child_id": {
+    "type": "one2many",
+    "string": "Child Categories"
+  },
+  "type": {
+    "type": "selection",
+    "help": "A category of the view type is a virtual category that can be used as the parent of another category to create a hierarchical structure.",
+    "string": "Category Type"
+  },
+  "id": {
+    "type": "integer",
+    "string": "ID"
+  },
+  "removal_strategy_id": {
+    "type": "many2one",
+    "help": "Set a specific removal strategy that will be used regardless of the source location for this product category",
+    "string": "Force Removal Strategy"
+  }
+}
